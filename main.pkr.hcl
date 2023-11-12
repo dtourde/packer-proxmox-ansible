@@ -24,10 +24,6 @@ source "proxmox-clone" "created" {
     bridge = "vmbr10"
     model  = "virtio"
   }
-  # ipconfig {
-  #   ip      = "10.0.10.250/24"
-  #   gateway = "10.0.10.1"
-  # }
 
   scsi_controller = "virtio-scsi-pci"
   qemu_agent      = true
