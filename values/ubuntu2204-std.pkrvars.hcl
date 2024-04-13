@@ -1,12 +1,9 @@
 template_name        = "ubuntu2204-std"
 template_description = "Ubuntu 22.04 machine image, default Ansible configuration"
-vm_id                = 9002
+vm_id                = 9003
 ssh_username         = "ubuntu"
 
-# Shell hack to create user 1000
-# shell_provisioner_inline = ["useradd -m debian"]
-# shell_provisioner_inline = ["sleep 300"]
-shell_provisioner_inline = ["while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep 5; done;"]
+shell_provisioner_inline = ["sleep 30; while sudo fuser /var/lib/dpkg/lock-frontend ; do sleep 5; done;"]
 
 # Ansible options
 ansible_groups      = ["all"]

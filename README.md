@@ -17,4 +17,7 @@ Use one of the `pkrvars.hcl` files located in `values` folder, and adapt the har
 packer build -force -var-file ./values/debian12-std.pkrvars.hcl -var-file ./secrets.pkrvars.hcl .
 ```
 
+Note: red message saying `proxmox-clone.created: /var/lib/dpkg/lock-frontend:` are not an error, it's the while loop waiting for the VM to finish upgrading.
+At startup, cloud-init Debian & Ubuntu VMs updates themselves.
+
 [^1]: links will be added when repos will be created

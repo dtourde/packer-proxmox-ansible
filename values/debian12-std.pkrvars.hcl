@@ -1,12 +1,9 @@
 template_name        = "debian12-std"
 template_description = "Debian 12 machine image, default Ansible configuration"
-vm_id                = 9001
+vm_id                = 9002
 ssh_username         = "debian"
 
-# ISSUE #1
-# shell_provisioner_inline = ["sleep 300"]
-shell_provisioner_inline = ["while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep 5; done;"]
-# shell_provisioner_inline = ["while sudo fuser /var/lib/dpkg/lock-frontend ; do sleep 5; done;"]
+shell_provisioner_inline = ["sleep 30; while sudo fuser /var/lib/dpkg/lock-frontend ; do sleep 5; done;"]
 
 # Ansible options
 ansible_groups      = ["all"]
